@@ -30,7 +30,8 @@ app.use(session({
 	saveUninitialized: false,
 	httpOnly: false,
 	cookie: {
-		maxAge: new Date(Date.now() + _2hr),
+		expires: new Date(Date.now() + _2hr),
+		maxAge: _2hr,
 	},
 }));
 
@@ -42,6 +43,6 @@ app.use(function(req, res) {
 	res.redirect('/');
 });
 
-app.listen(process.env.POST || 3000, () => {
-	console.log(`[+] Listening on http://localhost:${process.env.POST || 3000}`);
+app.listen(process.env.PORT || 3000, () => {
+	console.log(`[+] Listening on http://localhost:${process.env.PORT || 3000}`);
 });
