@@ -13,7 +13,6 @@ router.get('/captcha', (req, res) => {
 		background: '#fff',
 	});
 	req.session.captcha = captcha.text;
-	console.log(captcha.text);
 	res.type('svg');
 	res.status(200).send(captcha.data);
 });
