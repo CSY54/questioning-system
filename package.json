@@ -17,11 +17,11 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.0",
+    "forever": "^1.0.0",
     "helmet": "^3.21.2",
     "moment": "^2.24.0",
-    "morgan": "~1.9.1",
+    "morgan-body": "^2.4.8",
     "mysql": "^2.17.1",
-    "nodemon": "^1.19.4",
     "svg-captcha": "^1.4.0"
   },
   "author": "CSY54",

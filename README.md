@@ -24,7 +24,12 @@ DB_NAME=questions
 
 ## Deploy
 
-Simply run `nodemon app.js`.
+- Start: `forever start app.js`.
+- Stop: `forever stop app.js`.
+
+## Notices
+
+- The access log will log into `access.log`, to see it, simply run `tail access.log`
 
 ## License
 
