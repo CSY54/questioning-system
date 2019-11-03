@@ -11,16 +11,28 @@ mysql -u "username" -p < init.sql
 2. Create a file name `.env` with the contents below.
 **Important** Don't use the value provided below.
 ```text
+# Listening on
 PORT=3000
+
+# For authenticating the session
 SECRET=secret
+
+# The username and password for admin user
 ADMIN_USER=admin
 ADMIN_PASS=admin
+
+# The configuration for databases
 DB_HOST=localhost
 DB_USER=questions
 DB_PASS=questions
 DB_NAME=questions
+
+# Whether log to file or not
+LOG_TO_FILE=0
 ```
+
 3. Run `npm i` to install the dependencies.
+4. Run `npm i -g forever`.
 
 ## Deploy
 
@@ -29,7 +41,7 @@ DB_NAME=questions
 
 ## Notices
 
-- The access log will log into `access.log`, to see it, simply run `tail access.log`
+- If `LOG_TO_FILE` is enable, the access log will log into `access.log` file, simply run `tail access.log` to see it.
 
 ## License
 

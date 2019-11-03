@@ -12,8 +12,6 @@ var db = require('mysql').createConnection({
 
 db.connect((err) => {
 	if (err) throw err;
-	console.log('[+] MySQL connected successfully!');
-	console.log('[+] Connection id: ' + db.threadId);
 });
 
 db.config.queryFormat = function (query, values) {

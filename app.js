@@ -5,8 +5,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var helmet = require('helmet');
+var logger = require('morgan');
 var morganBody = require('morgan-body');
 var fs = require('fs');
+require('dotenv').config();
 
 var app = express();
 
@@ -14,13 +16,20 @@ app.set('trust proxy', 1);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
+if (process.env.LOG_TO_FILE == 1) {
+	var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
+		flags: 'a'
+	});
+	morganBody(app, {
+		logReqUserAgent: false,
+		logResponseBody: false,
+		stream: accessLogStream,
+	});
+}
+else {
+	app.use(logger('dev'));
+}
 
-morganBody(app, {
-	logReqUserAgent: false,
-	logResponseBody: false,
-	stream: accessLogStream,
-});
 app.use(express.json());
 app.use(express.urlencoded({
 	extended: false
@@ -51,6 +60,4 @@ app.use(function(req, res) {
 	res.redirect('/');
 });
 
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`[+] Listening on http://localhost:${process.env.PORT || 3000}`);
-});
+app.listen(process.env.PORT || 3000);
