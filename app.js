@@ -20,6 +20,7 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use('/img', express.static(path.join(__dirname, 'public/images')));
+app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 app.use(helmet());
 
 var _2hr = 1000 * 60 * 60 * 2;

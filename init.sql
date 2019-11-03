@@ -7,4 +7,4 @@ CREATE TABLE questions (
 	problem CHAR NOT NULL,
 	time timestamp NOT NULL DEFAULT now(),
 	PRIMARY KEY (id)
-);
+) CHARSET=utf8;
