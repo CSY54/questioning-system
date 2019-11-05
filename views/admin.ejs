@@ -48,7 +48,6 @@
 	var last_click_id = 0;
 	$(document).ready(function() {
 		$('#yes').on('click', function() {
-			console.log($('#csrf_token').val());
 			$.ajax({
 				url: '/api/delete',
 				type: 'POST',
