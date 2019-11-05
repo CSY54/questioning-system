@@ -122,10 +122,18 @@ router.post('/delete', (req, res) => {
 		return;
 	}
 
+	let csrf_token = req.body.csrf_token;
+	let id = req.body.id;
+
+	if (csrf_token != req.session.csrf_token) {
+		res.redirect('/api/logout');
+		return;
+	}
+
 	new Promise((resolve, reject) => {
 		let qry = 'DELETE FROM questions WHERE id=:id';
 		let param = {
-			id: req.body.id,
+			id: id,
 		};
 		db.query(qry, param, (err, rows) => {
 			if (err) reject();

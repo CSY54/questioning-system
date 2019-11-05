@@ -1,15 +1,15 @@
 <%- include('./partial/header.ejs') %>
 <div class="container jumbotron">
 	<% if (page === 'index') { %>
-		<%- include('./index.ejs') %>
+	<%- include('./index.ejs') %>
 	<% } else if (page === 'admin') { %>
-		<%- include('./admin.ejs', data) %>
+	<%- include('./admin.ejs', data) %>
 	<% } else if (page === 'login') { %>
-		<%- include('./login.ejs') %>
+	<%- include('./login.ejs') %>
 	<% } else if (page === 'submitted') { %>
-		<%- include('./submitted.ejs') %>
+	<%- include('./submitted.ejs') %>
 	<% } else { %>
-		<%- include('./404.ejs') %>
+	<%- include('./404.ejs') %>
 	<% } %>
 </div>
 <%- include('./partial/footer.ejs') %>

@@ -2,6 +2,7 @@
 
 var router = require('express').Router();
 var moment = require('moment');
+var crypto = require('crypto');
 
 var db = require('../db');
 
@@ -29,6 +30,10 @@ router.get('/management', (req, res) => {
 		return;
 	}
 
+	let csrf_token = crypto.randomBytes(16).toString('hex');
+	console.log(csrf_token);
+	req.session.csrf_token = csrf_token;
+
 	new Promise((resolve, reject) => {
 		let qry = 'SELECT * FROM questions';
 		db.query(qry, (err, rows) => {
@@ -43,6 +48,7 @@ router.get('/management', (req, res) => {
 			page: 'admin',
 			data: {
 				questions: rows,
+				csrf_token: csrf_token,
 			},
 		});
 	}).catch((err) => {
@@ -50,6 +56,7 @@ router.get('/management', (req, res) => {
 			page: 'admin',
 			data: {
 				error: err,
+				csrf_token: csrf_token,
 			},
 		});
 	});

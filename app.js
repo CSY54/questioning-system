@@ -25,8 +25,7 @@ if (process.env.LOG_TO_FILE == 1) {
 		logResponseBody: false,
 		stream: accessLogStream,
 	});
-}
-else {
+} else {
 	app.use(logger('dev'));
 }
 
