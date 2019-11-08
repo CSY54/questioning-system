@@ -3,10 +3,18 @@
 A questioning system for our Online Judge developed by [CSY54](https://csy54.github.io/).
 
 <p align="center">
-[![Build Status](https://travis-ci.org/CSY54/Questioning_System.svg?branch=master)](https://travis-ci.org/CSY54/Questioning_System)
-[![MIT license](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://choosealicense.com/licenses/mit/)
-[![Code Style](https://img.shields.io/badge/code%20style-Google-brightgreen)](https://google.github.io/styleguide/jsguide.html)
+  <a href="https://travis-ci.org/CSY54/Questioning_System">
+    <img src="https://travis-ci.org/CSY54/Questioning_System.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://choosealicense.com/licenses/mit/">
+    <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="MIT license">
+  </a>
+  <a href="https://google.github.io/styleguide/jsguide.html">
+    <img src="https://img.shields.io/badge/code%20style-Google-brightgreen" alt="Code Style">
+  </a>
 </p>
+
+
 
 ## Setup
 
