@@ -7,7 +7,7 @@ services:
   - mysql
 
 before_install:
-  - mysql -u root -e "CREATE USER 'test'@'localhost' IDENTIFIED BY 'test'; GRANT ALL ON TO 'test'@'localhost';"
+  - mysql -u root -e "CREATE USER 'test'@'localhost' IDENTIFIED BY 'test'; GRANT ALL TO 'test'@'localhost';"
   - mysql -u test -p 'test' < init.sql
 
 after_success:
