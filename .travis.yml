@@ -1,3 +1,17 @@
 language: node_js
+
 node_js:
-    - "node"
+  - "node"
+
+services:
+  - mysql
+
+before_install:
+  - mysql -u root -e "CREATE USER 'test'@'localhost' IDENTIFIED BY 'test'; GRANT ALL ON 'test'.* to 'test'@'localhost';"
+  - mysql -u test -p 'test' < init.sql
+
+after_success:
+  - cat /tmp/mysql.err
+
+after_failure:
+  - cat /tmp/mysql.err
