@@ -8,7 +8,7 @@ services:
 
 before_install:
   - mysql -u root -e "CREATE USER 'test'@'localhost' IDENTIFIED BY 'test'; GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost'; FLUSH PRIVILEGES;"
-  - mysql -u test -p'test' < init.sql
+  - mysql -u root < init.sql
 
 after_success:
   - cat /tmp/mysql.err
