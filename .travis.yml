@@ -7,10 +7,10 @@ services:
   - mysql
 
 before_install:
-  - mysql -u root -e "CREATE USER `test`@`localhost` IDENTIFIED BY `test`; \
-                      GRANT ALL PRIVILEGES ON *.* TO `test`@`localhost`; \
-                      FLUSH PRIVILEGES; \
-                      CREATE DATABASE `questions`;"
+  - mysql -u root -e "CREATE DATABASE IF NOT EXISTS questions;
+                      CREATE USER IF NOT EXISTS 'test'@'localhost' IDENTIFIED BY 'test';
+                      GRANT ALL PRIVILEGES ON questions.* TO 'test'@'localhost';
+                      FLUSH PRIVILEGES;"
   - mysql -u root < init.sql
 
 after_success:
