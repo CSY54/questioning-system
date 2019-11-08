@@ -18,7 +18,6 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-session": "^1.17.0",
-    "forever": "^1.0.0",
     "helmet": "^3.21.2",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
@@ -27,5 +26,9 @@
     "svg-captcha": "^1.4.0"
   },
   "author": "CSY54",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0"
+  }
 }
