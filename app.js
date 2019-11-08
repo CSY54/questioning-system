@@ -36,6 +36,7 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use('/img', express.static(path.join(__dirname, 'public/images')));
+app.use('/js', express.static(path.join(__dirname, 'public/javascripts')));
 app.use('/css', express.static(path.join(__dirname, 'public/stylesheets')));
 app.use(helmet());
 
@@ -61,3 +62,5 @@ app.use(function(req, res) {
 });
 
 app.listen(process.env.PORT || 3000);
+
+module.exports = app;

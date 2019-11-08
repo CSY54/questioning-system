@@ -1,74 +1,43 @@
 <div>
-	<div class="h1-button">
-		<h1>Ask a Question</h1>
-		<button type="button" class="btn btn-primary" onclick="location.href='/admin'">Admin</button>
-	</div>
-	<hr />
-	<form id="form">
-		<div class="form-group">
-			<label for="username"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Username</label>
-			<input id="username" class="form-control" type="text" placeholder="Username" maxlength="16" autocomplete="off" required />
-		</div>
-		<div class="form-group">
-			<label for="problem"><i class="fa fa-hashtag fa-fw" aria-hidden="true"></i> Problem ID</label>
-			<select id="problem" class="form-control" required>
-				<option value="">Choose</option>
-				<option value="A">A</option>
-				<option value="B">B</option>
-				<option value="C">C</option>
-				<option value="D">D</option>
-				<option value="E">E</option>
-				<option value="F">F</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="contents"><i class="fas fa-question fa-fw" aria-hidden="true"></i> Question</label>
-			<textarea id="contents" class="form-control" rows="5" placeholder="Type your question here" maxlength="1024" required></textarea>
-		</div>
-		<div class="form-group">
-			<label for="captcha"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Captcha</label>
-			<div class="input-group">
-				<input id="captcha" type="text" class="form-control" placeholder="Captcha" maxlength="4" autocomplete="off" required />
-				<div class="input-group-append">
-					<img id="captcha_img" />
-				</div>
-			</div>
-		</div>
-		<div id="msg"></div>
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary btn-lg btn-block">Submit!</button>
-		</div>
-	</form>
+  <div class="h1-button">
+    <h1>Ask a Question</h1>
+    <button type="button" class="btn btn-primary" onclick="location.href='/admin'">Admin</button>
+  </div>
+  <hr>
+  <form id="form">
+    <div class="form-group">
+      <label for="username"><i class="fa fa-user fa-fw" aria-hidden="true"></i> Username</label>
+      <input id="username" class="form-control" type="text" placeholder="Username" maxlength="16" autocomplete="off" required />
+    </div>
+    <div class="form-group">
+      <label for="problem"><i class="fa fa-hashtag fa-fw" aria-hidden="true"></i> Problem ID</label>
+      <select id="problem" class="form-control" required>
+        <option value="">Choose</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="contents"><i class="fas fa-question fa-fw" aria-hidden="true"></i> Question</label>
+      <textarea id="contents" class="form-control" rows="5" placeholder="Type your question here" maxlength="1024" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="captcha"><i class="fas fa-image fa-fw" aria-hidden="true"></i> Captcha</label>
+      <div class="input-group">
+        <input id="captcha" type="text" class="form-control" placeholder="Captcha" maxlength="4" autocomplete="off" required />
+        <div class="input-group-append">
+          <img id="captcha_img" />
+        </div>
+      </div>
+    </div>
+    <div id="msg"></div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Submit!</button>
+    </div>
+  </form>
 </div>
-<script>
-	$(document).ready(function() {
-		$('#captcha_img').on('click', function() {
-			$('#captcha_img').attr('src', '/api/captcha?r=' + Math.random()).attr('height', $('#captcha').innerHeight());
-		});
-		$('#form').on('submit', function(e) {
-			e.preventDefault();
-			$.ajax({
-				url: '/api/submit',
-				type: 'POST',
-				data: {
-					username: $('#username').val(),
-					problem: $('#problem').val(),
-					contents: $('#contents').val(),
-					captcha: $('#captcha').val()
-				},
-				success: function(res) {
-					if (res.success) {
-						window.location.href = '/submitted';
-					} else {
-						$('#msg').addClass('alert alert-danger').text(res.error);
-						$('#captcha_img').click();
-					}
-				},
-				fail: function(xhr, textStatus, errorThrown) {
-					console.log(xhr, textStatus, errorThrown);
-				}
-			})
-		});
-		$('#captcha_img').click();
-	})
-</script>
+<script src="/js/index.js"></script>
