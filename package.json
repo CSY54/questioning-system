@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "test": "mocha --exit",
     "start": "node app.js",
     "ejslint": "find views -type f -iname '*.ejs' -exec bash -c \"ejslint '{}'\" \\;",
     "eslint": "eslint . --ext .js"
@@ -13,7 +14,6 @@
   ],
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
@@ -29,6 +29,8 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^6.6.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^6.2.2",
+    "should": "^13.2.3"
   }
 }

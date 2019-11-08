@@ -65,7 +65,7 @@ router.post('/submit', (req, res) => {
   }
 
   new Promise((resolve, reject) => {
-    const qry = 'INSERT INTO questions VALUES'+
+    const qry = 'INSERT INTO questions VALUES' +
         '(NULL, :username, :contents, :pid, now())';
     const param = {
       username: username,
