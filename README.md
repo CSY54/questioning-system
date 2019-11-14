@@ -2,8 +2,8 @@
 
 A questioning system for our Online Judge developed by [CSY54](https://csy54.github.io/).
 
-<a href="https://travis-ci.org/CSY54/Questioning_System">
-  <img src="https://travis-ci.org/CSY54/Questioning_System.svg?branch=master" alt="Build Status">
+<a href="https://travis-ci.org/CSY54/questioning-system">
+  <img src="https://travis-ci.org/CSY54/questioning-system.svg?branch=master" alt="Build Status">
 </a>
 <a href="https://choosealicense.com/licenses/mit/">
   <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg" alt="MIT license">
