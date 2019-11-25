@@ -31,7 +31,6 @@ router.get('/management', (req, res) => {
   }
 
   const _csrf = crypto.randomBytes(16).toString('hex');
-  console.log(_csrf);
   req.session._csrf = _csrf;
 
   new Promise((resolve, reject) => {
